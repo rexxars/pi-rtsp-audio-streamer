@@ -6,6 +6,12 @@ I use this for a Raspberry Pi Zero 2 W with a USB microphone, and add the RTSP s
 
 RTSP stream will be available on rtsp://${PI-HOSTNAME}.local:8554/mic 
 
+## TL;DR
+
+```sh
+curl -o- https://raw.githubusercontent.com/rexxars/pi-rtsp-audio-streamer/main/bootstrap.sh | bash
+```
+
 ## Features
 
 - Uses [go2rtc](https://github.com/AlexxIT/go2rtc) under the hood - lightweight, single-binary
