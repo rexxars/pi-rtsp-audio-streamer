@@ -38,11 +38,11 @@ curl -o- https://raw.githubusercontent.com/rexxars/pi-rtsp-audio-streamer/main/b
     - MicroSD card of at least 4GB. These days you'll have trouble finding something below 16GB for not a ton of money. Given that we tune the OS for minimal SD card writes, you likely don't need anything super fancy or durable, but the price difference isn't huge these days.
       - Something to write the Raspberry Pi image onto the SD card. The MacBook Pro has an SD card reader, and a lot of the MicroSD cards come with an adapter - but whatever works for ya.
 2. Install [Raspberry Pi OS](https://www.raspberrypi.com/software/). Using the Raspberry Pi Imager, I'd recommend:
-    - Choosing Raspberry Pi OS Lite (32-bit). You'll find it under "Raspberry Pi OS (Other)". There's no need for a desktop environment, and 64-bit isn't gonna give us any leg up here.
+    - Choosing Raspberry Pi OS Lite. You'll find it under "Raspberry Pi OS (Other)". There's no need for a desktop environment.
     - When it asks for OS customization, make sure you configure it with:
        - A hostname of your choice. Makes it easier to find once it boots - available as `<your-hostname>.local`.
        - The wireless LAN options, so it automatically connects. Without this you won't be streaming anywhere.
-       - Under the "Services" tab, enable SSH - unless you're planning to run the bootstrap script manually with a keyboard and monitor (with the Zero 2W you'll likely need the Micro USB -> USB A adapter for the keyboard _and_ a Mini-HDMI to HDMI adapter, so SSH is my preferred choice to avoid having to do this).
+       - Enable SSH - unless you're planning to run the bootstrap script manually with a keyboard and monitor (with the Zero 2W you'll likely need the Micro USB -> USB A adapter for the keyboard _and_ a Mini-HDMI to HDMI adapter, so SSH is my preferred choice to avoid having to do this).
 3. Insert the MicroSD card into the Raspberry Pi, the mic into it's USB, and give it power.
 4. Run the bootstrap script from this repo: `curl -o- https://raw.githubusercontent.com/rexxars/pi-rtsp-audio-streamer/main/bootstrap.sh | bash` (or whatever method you prefer, source is at [bootstrap.sh](https://github.com/rexxars/pi-rtsp-audio-streamer/blob/main/bootstrap.sh))
 5. Done, hopefully! Try the stream with VLC or similar (file -> open network)
