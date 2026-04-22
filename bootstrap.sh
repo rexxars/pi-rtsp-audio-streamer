@@ -12,7 +12,16 @@ echo "🎙️ Setting up go2rtc..."
 sudo mkdir -p /opt/go2rtc
 cd /opt/go2rtc
 
-sudo curl -L -o go2rtc https://github.com/AlexxIT/go2rtc/releases/latest/download/go2rtc_linux_armv6
+ARCH=$(uname -m)
+case "$ARCH" in
+  armv6l)  GO2RTC_ARCH="armv6" ;;
+  armv7l)  GO2RTC_ARCH="arm" ;;
+  aarch64) GO2RTC_ARCH="arm64" ;;
+  x86_64)  GO2RTC_ARCH="amd64" ;;
+  *)       echo "❌ Unsupported architecture: $ARCH"; exit 1 ;;
+esac
+
+sudo curl -L -o go2rtc "https://github.com/AlexxIT/go2rtc/releases/latest/download/go2rtc_linux_${GO2RTC_ARCH}"
 sudo chmod +x go2rtc
 
 echo "📝 Creating ffmpeg USB mic wrapper script..."
